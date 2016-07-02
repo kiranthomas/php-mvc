@@ -77,6 +77,18 @@ class Router
 
     }
 
+
+    public function dispatch($url)
+    {
+        if($this->match($url)) {
+            $controller = $this->params['controller'];
+            //TODO convert to studlyCaps
+
+        }else {
+
+        }
+    }
+
     /**
      * Get currently matched params
      * @return mixed
