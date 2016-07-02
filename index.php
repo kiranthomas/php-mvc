@@ -15,7 +15,9 @@ require 'Core/Router.php';
 $router = new Router();
 
 $router->add('{controller}/{action}');
-$router->add('admin/{action}/{controller}');
+$router->add('{controller}/{id:\d+}/{action}');
+
+
 
 
 
