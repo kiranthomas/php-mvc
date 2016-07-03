@@ -1,5 +1,7 @@
 <?php
 
+namespace Core;
+
 /**
  * Created by PhpStorm.
  * User: kiran
@@ -83,15 +85,14 @@ class Router
         if($this->match($url)) {
             $controller = $this->params['controller'];
             $controller = $this->convertToStudlyCaps($controller);
+            $controller = "App\Controllers\\$controller";
 
             if(class_exists($controller)) {
                 $controller_object = new $controller();
-
                 $action = $this->params['action'];
                 $action = $this->convertToCamelCase($action);
 
-                if(is_callable($controller_object, $action)) {
-
+                if(is_callable(array($controller_object, $action))) {
                     $controller_object->$action();
                 } else {
                     echo "Method-$action in Controller-$controller Not Found";

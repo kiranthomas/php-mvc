@@ -8,7 +8,17 @@
  * Time: 15:21
  */
 
+
+
+
+
 require 'Core/Router.php';
+
+require 'App/Controllers/Posts.php';
+
+
+
+
 
 
 
@@ -22,20 +32,22 @@ $router->add('{controller}/{id:\d+}/{action}');
 
 
 //display the routing table
-echo " Requested URL= ". $_SERVER['QUERY_STRING'];
+//echo " Requested URL= ". $_SERVER['QUERY_STRING'];
+//
+//$url = $_SERVER['QUERY_STRING'];
+//
+//echo '<pre>';
+//var_dump($router->getRoutes());
+//
+//echo '<pre>';
+//
+//
+//
+//
+//
+//var_dump($router->match($url));
+//
+//var_dump($router->getParams());
 
-$url = $_SERVER['QUERY_STRING'];
 
-echo '<pre>';
-var_dump($router->getRoutes());
-
-echo '<pre>';
-
-
-
-
-
-var_dump($router->match($url));
-
-var_dump($router->getParams());
-
+$router->dispatch($_SERVER['QUERY_STRING']);
