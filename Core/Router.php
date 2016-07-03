@@ -82,11 +82,40 @@ class Router
     {
         if($this->match($url)) {
             $controller = $this->params['controller'];
-            //TODO convert to studlyCaps
+            $controller = $this->convertToStudlyCaps($controller);
 
-        }else {
+            if(class_exists($controller)) {
+                $controller_object = new $controller();
 
+                $action = $this->params['action'];
+                $action = $this->convertToCamelCase($action);
+
+                if(is_callable($controller_object, $action)) {
+
+                    $controller_object->$action();
+                } else {
+                    echo "Method-$action in Controller-$controller Not Found";
+                }
+
+            } else {
+                echo "Controller Class-$controller Not Found!";
+            }
+
+        } else {
+            echo "No route matched!";
         }
+    }
+
+
+    protected function convertToStudlyCaps($string)
+    {
+        return str_replace(' ', '', ucwords(str_replace('-', ' ', $string)));
+    }
+
+
+    protected function convertToCamelCase($string)
+    {
+        return lcfirst($this->convertToStudlyCaps($string));
     }
 
     /**
