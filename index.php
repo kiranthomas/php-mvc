@@ -9,45 +9,22 @@
  */
 
 
+/**
+ * AutoLoader
+ */
 
+spl_autoload_register(function($class){
+   //$root = dirname(__DIR__);
+   $root = __DIR__;
+   $file = $root . '/' . str_replace('\\', '/', $class) . '.php';
+    if(is_readable($file)) {
+        require $root . '/' . str_replace('\\', '/', $class) . '.php';
+    }
+});
 
-
-require 'Core/Router.php';
-
-require 'App/Controllers/Posts.php';
-
-
-
-
-
-
-
-$router = new Router();
+$router = new Core\Router();
 
 $router->add('{controller}/{action}');
 $router->add('{controller}/{id:\d+}/{action}');
-
-
-
-
-
-//display the routing table
-//echo " Requested URL= ". $_SERVER['QUERY_STRING'];
-//
-//$url = $_SERVER['QUERY_STRING'];
-//
-//echo '<pre>';
-//var_dump($router->getRoutes());
-//
-//echo '<pre>';
-//
-//
-//
-//
-//
-//var_dump($router->match($url));
-//
-//var_dump($router->getParams());
-
 
 $router->dispatch($_SERVER['QUERY_STRING']);
