@@ -12,7 +12,7 @@ use Core\Controller;
  */
 class Posts extends Controller
 {
-    public function index()
+    public function indexAction()
     {
         echo "Inside Posts index controller";
 

@@ -13,10 +13,21 @@ use Core\Controller;
 class Users extends Controller
 {
 
-    public function index()
+    public function indexAction()
     {
         echo "In user Index";
 
+    }
+
+    protected function beforeCall()
+    {
+        echo "before calling the index action";
+    }
+
+
+    protected function afterCall()
+    {
+        echo "after calling the index action";
     }
 
 }
