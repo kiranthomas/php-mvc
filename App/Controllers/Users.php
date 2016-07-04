@@ -8,10 +8,9 @@
 
 namespace App\Controllers;
 
+use Core\Controller;
 
-
-
-class Users
+class Users extends Controller
 {
 
     public function index()
