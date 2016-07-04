@@ -39,7 +39,7 @@ abstract class Controller
                 $this->afterCall();
             }
         } else {
-            echo "Methos $method not found in controller " . get_class($this);
+            echo "Method $method not found in controller " . get_class($this);
 
         }
 

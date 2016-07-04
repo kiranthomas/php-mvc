@@ -32,13 +32,9 @@ class Router
     {
         $route = preg_replace('/\//', '\\/', $route);
 
-
         $route = preg_replace('/\{([a-z-]+)\}/', '(?P<\1>[a-z-]+)', $route);
-
         //convert variable with custom regex
         $route = preg_replace('/\{([a-z ]+):([^\}]+)\}/', '(?P<\1>\2)', $route);
-
-
 
         $route = '/^' . $route . '$/i';
 
@@ -79,7 +75,9 @@ class Router
 
     }
 
-
+    /**
+     * @param $url
+     */
     public function dispatch($url)
     {
         $url = $this->removeQueryStringVars($url);
@@ -87,7 +85,7 @@ class Router
         if($this->match($url)) {
             $controller = $this->params['controller'];
             $controller = $this->convertToStudlyCaps($controller);
-            $controller = "App\Controllers\\$controller";
+            $controller = $this->getNameSpace() . $controller;
 
             if(class_exists($controller)) {
                 $controller_object = new $controller($this->params);
@@ -109,6 +107,10 @@ class Router
         }
     }
 
+    /**
+     * @param $url
+     * @return string
+     */
     protected function removeQueryStringVars($url)
     {
         if($url != '') {
@@ -123,13 +125,33 @@ class Router
         return $url;
     }
 
+    /**
+     * @return string
+     */
+    protected function getNameSpace()
+    {
+        $namespace = 'App\Controllers\\';
 
+        if(array_key_exists('namespace', $this->params)) {
+            $namespace .= $this->params['namespace'] . '\\';
+        }
+
+        return $namespace;
+    }
+
+    /**
+     * @param $string
+     * @return mixed
+     */
     protected function convertToStudlyCaps($string)
     {
         return str_replace(' ', '', ucwords(str_replace('-', ' ', $string)));
     }
 
-
+    /**
+     * @param $string
+     * @return string
+     */
     protected function convertToCamelCase($string)
     {
         return lcfirst($this->convertToStudlyCaps($string));
