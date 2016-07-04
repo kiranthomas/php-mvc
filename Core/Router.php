@@ -82,6 +82,8 @@ class Router
 
     public function dispatch($url)
     {
+        $url = $this->removeQueryStringVars($url);
+
         if($this->match($url)) {
             $controller = $this->params['controller'];
             $controller = $this->convertToStudlyCaps($controller);
@@ -105,6 +107,20 @@ class Router
         } else {
             echo "No route matched!";
         }
+    }
+
+    protected function removeQueryStringVars($url)
+    {
+        if($url != '') {
+            $parts = explode('&', $url, 2);
+
+            if(strpos($parts[0], '=') === false) {
+                $url = $parts[0];
+            } else {
+                $url = '';
+            }
+        }
+        return $url;
     }
 
 

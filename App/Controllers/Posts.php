@@ -9,9 +9,9 @@ namespace App\Controllers;
  */
 class Posts
 {
-    public function index()
+    public function index($test)
     {
-        echo "in here";
+        echo "In Post index";
     }
 
 
