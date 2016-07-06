@@ -2,7 +2,7 @@
 
 namespace App\Controllers\Admin;
 
-use Core\Controller;
+use Mvc\Core\Controller;
 
 /**
  * Created by PhpStorm.

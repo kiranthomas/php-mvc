@@ -6,10 +6,10 @@
  * Time: 09:54
  */
 
-namespace App\Controllers;
+namespace Mvc\App\Controllers;
 
-use Core\Controller;
-use Core\View;
+use Mvc\Core\Controller;
+use Mvc\Core\View;
 
 class Users extends Controller
 {

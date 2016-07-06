@@ -6,7 +6,7 @@
  * Time: 12:36
  */
 
-namespace Core;
+namespace Mvc\Core;
 
 
 abstract class Controller

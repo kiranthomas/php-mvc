@@ -13,7 +13,7 @@ error_reporting(E_ALL);
 
 
 /**
- * Twig
+ * Composer autoload
  */
 
 require __DIR__ . '/vendor/autoload.php';
@@ -21,19 +21,19 @@ require __DIR__ . '/vendor/autoload.php';
 
 
 /**
- * AutoLoader
+ * Custom AutoLoader
  */
 
-spl_autoload_register(function($class){
-   //$root = dirname(__DIR__);
-   $root = __DIR__;
-   $file = $root . '/' . str_replace('\\', '/', $class) . '.php';
-    if(is_readable($file)) {
-        require $root . '/' . str_replace('\\', '/', $class) . '.php';
-    }
-});
+//spl_autoload_register(function($class){
+//   //$root = dirname(__DIR__);
+//   $root = __DIR__;
+//   $file = $root . '/' . str_replace('\\', '/', $class) . '.php';
+//    if(is_readable($file)) {
+//        require $root . '/' . str_replace('\\', '/', $class) . '.php';
+//    }
+//});
 
-$router = new Core\Router();
+$router = new Mvc\Core\Router();
 
 $router->add('{controller}/{action}');
 $router->add('{controller}/{id:\d+}/{action}');

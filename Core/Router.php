@@ -1,6 +1,6 @@
 <?php
 
-namespace Core;
+namespace Mvc\Core;
 
 /**
  * Created by PhpStorm.
@@ -130,7 +130,7 @@ class Router
      */
     protected function getNameSpace()
     {
-        $namespace = 'App\Controllers\\';
+        $namespace = 'Mvc\App\Controllers\\';
 
         if(array_key_exists('namespace', $this->params)) {
             $namespace .= $this->params['namespace'] . '\\';

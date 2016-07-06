@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Controllers;
+namespace Mvc\App\Controllers;
 
-use Core\Controller;
+use Mvc\Core\Controller;
 
 /**
  * Created by PhpStorm.

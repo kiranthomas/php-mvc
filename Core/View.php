@@ -6,7 +6,7 @@
  * Time: 19:26
  */
 
-namespace Core;
+namespace Mvc\Core;
 
 
 class View
