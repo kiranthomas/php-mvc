@@ -1,0 +1,13 @@
+{
+    "name": "PHP MVC",
+    "description": "Custom php-mvc",
+    "authors": [
+        {
+            "name": "Kiran Thomas",
+            "email": "kiranthomasrose@gmail.com"
+        }
+    ],
+    "require": {
+        "twig/twig": "~1.0"
+    }
+}
