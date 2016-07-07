@@ -40,4 +40,7 @@ $router->add('{controller}/{id:\d+}/{action}');
 $router->add('admin/{controller}/{action}', ['namespace' => 'Admin']);
 
 
+//var_dump($router->getRoutes());
+
+
 $router->dispatch($_SERVER['QUERY_STRING']);
