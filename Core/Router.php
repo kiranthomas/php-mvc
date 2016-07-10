@@ -114,6 +114,9 @@ class Router
     protected function removeQueryStringVars($url)
     {
         if($url != '') {
+
+            $url = substr($url, 1);
+
             $parts = explode('&', $url, 2);
 
             if(strpos($parts[0], '=') === false) {

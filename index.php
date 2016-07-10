@@ -16,6 +16,8 @@ error_reporting(E_ALL);
  * Composer autoload
  */
 
+use Symfony\Component\HttpFoundation\Request;
+
 require __DIR__ . '/vendor/autoload.php';
 
 
@@ -33,6 +35,10 @@ require __DIR__ . '/vendor/autoload.php';
 //    }
 //});
 
+
+$request = Request::createFromGlobals();
+
+
 $router = new Mvc\Core\Router();
 
 $router->add('{controller}/{action}');
@@ -43,4 +49,4 @@ $router->add('admin/{controller}/{action}', ['namespace' => 'Admin']);
 //var_dump($router->getRoutes());
 
 
-$router->dispatch($_SERVER['QUERY_STRING']);
+$router->dispatch($request->getPathInfo());
