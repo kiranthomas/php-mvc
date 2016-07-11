@@ -68,6 +68,7 @@ class Router
                     }
                 }
                 $this->params = $params;
+
                 return true;
             }
         }
