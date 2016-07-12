@@ -2,7 +2,10 @@
 
 namespace Mvc\App\Controllers;
 
+use Mvc\App\Models\Post;
 use Mvc\Core\Controller;
+use Symfony\Component\HttpFoundation\Response;
+
 
 /**
  * Created by PhpStorm.
@@ -14,10 +17,9 @@ class Posts extends Controller
 {
     public function indexAction()
     {
-        echo "Inside Posts index controller";
+        $posts = Post::getAll();
 
-        echo '<pre>';
-        var_dump($this->route_params);
+        return new Response($posts);
     }
 
 }
