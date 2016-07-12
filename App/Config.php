@@ -13,7 +13,7 @@ class Config
 
     const HOST = 'localhost';
 
-    const DB = 'mvc';
+    const DB = 'tdi';
 
     const DBUSER = 'root';
 

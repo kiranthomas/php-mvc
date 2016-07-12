@@ -24,7 +24,6 @@ class Post extends Model
 
         return $results;
 
-
     }
 
 }

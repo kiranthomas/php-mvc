@@ -4,7 +4,7 @@ namespace Mvc\App\Controllers;
 
 use Mvc\App\Models\Post;
 use Mvc\Core\Controller;
-use Symfony\Component\HttpFoundation\Response;
+use Mvc\Core\View;
 
 
 /**
@@ -18,8 +18,7 @@ class Posts extends Controller
     public function indexAction()
     {
         $posts = Post::getAll();
-
-        return new Response($posts);
+        View::renderTemplate('Posts/index.html.twig', ['posts' => $posts]);
     }
 
 }

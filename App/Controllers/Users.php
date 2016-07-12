@@ -23,15 +23,4 @@ class Users extends Controller
 
     }
 
-//    protected function beforeCall()
-//    {
-//        echo "before calling the index action";
-//    }
-//
-//
-//    protected function afterCall()
-//    {
-//        echo "after calling the index action";
-//    }
-
 }
